@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Diya | Data Analyst Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+/* 🌌 BACKGROUND */
+body {
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    color:white;
+    overflow-x:hidden;
+    background: radial-gradient(circle at top, #1a1c5c, #0b0c2a);
+}
+
+/* 🏰 DISNEY BACKGROUND */
+body::before {
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url("https://getdrawings.com/vectors/disney-castle-logo-vector-21.jpg") no-repeat bottom center;
+    background-size:cover;
+    opacity:0.08;
+    z-index:-1;
+}
+
+/* 🎬 FULL SCREEN LOADER */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://getdrawings.com/vectors/disney-castle-logo-vector-21.jpg") no-repeat center;
+    background-size: cover;
+    z-index: 9999;
+    animation: zoomIn 2s ease;
+    transition: opacity 1s ease;
+}
+
+#intro::after {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+}
+
+/* 🎥 Zoom animation */
+@keyframes zoomIn {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+/* MAIN */
+.container {
+    padding:60px;
+}
+
+/* ✨ TITLE */
+h1 {
+    font-family:'Pacifico', cursive;
+    font-size:45px;
+}
+
+/* 📄 SECTIONS */
+.section {
+    margin-top:30px;
+    max-width:800px;
+}
+
+/* 📊 SKILLS */
+.skills span {
+    background:rgba(255,255,255,0.1);
+    padding:8px 12px;
+    margin:5px;
+    border-radius:10px;
+    display:inline-block;
+}
+
+/* 📊 STATS */
+.stats {
+    display:flex;
+    gap:40px;
+    margin:30px 0;
+}
+
+.stats div {
+    background:rgba(255,255,255,0.05);
+    padding:15px 25px;
+    border-radius:15px;
+}
+
+/* 🎬 PROJECT GRID */
+.projects {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+/* 💎 CARD */
+.card {
+    position:relative;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.card img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.card:hover img {
+    transform:scale(1.2);
+    filter:brightness(0.4);
+}
+
+.overlay {
+    position:absolute;
+    bottom:0;
+    padding:20px;
+    opacity:0;
+    transition:0.4s;
+}
+
+.card:hover .overlay {
+    opacity:1;
+}
+
+a { color:white; text-decoration:none; }
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎬 LOADER -->
+<div id="intro"></div>
+
+<div class="container">
+
+<h1>Diya | Data Analyst</h1>
+
+<div class="section">
+<h2>Profile</h2>
+<p>
+Aspiring Data Analyst with hands-on experience in SQL, Python, Excel, and Tableau, specializing in user behavior analysis, growth analytics, and data-driven decision-making.
+</p>
+</div>
+
+<div class="section">
+<h2>Skills</h2>
+<div class="skills">
+<span>SQL</span>
+<span>Python</span>
+<span>Excel</span>
+<span>Tableau</span>
+<span>Data Visualization</span>
+<span>Analytics</span>
+</div>
+</div>
+
+<div class="section">
+<h2>Languages</h2>
+<p>English • Hindi • Learning Mandarin</p>
+</div>
+
+<div class="stats">
+<div>📊 100K+ Rows</div>
+<div>📈 Growth Focus</div>
+<div>💡 Insights</div>
+</div>
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<a href="project1.html" class="card">
+<img src="img1.png.png">
+<div class="overlay"><h3>Growth Analytics</h3></div>
+</a>
+
+<a href="project2.html" class="card">
+<img src="img2.png.png">
+<div class="overlay"><h3>PixieDust Analytics</h3></div>
+</a>
+
+<a href="project3.html" class="card">
+<img src="img3.png.png">
+<div class="overlay"><h3>Content Intelligence</h3></div>
+</a>
+
+</div>
+
+</div>
+
+<!-- ✨ SPARKLE CURSOR -->
+<script>
+document.addEventListener("mousemove", function(e) {
+    let s = document.createElement("div");
+    s.style.position="absolute";
+    s.style.left=e.pageX+"px";
+    s.style.top=e.pageY+"px";
+    s.style.width="6px";
+    s.style.height="6px";
+    s.style.background="white";
+    s.style.borderRadius="50%";
+    s.style.boxShadow="0 0 10px white, 0 0 20px #00d4ff";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),400);
+});
+
+/* 🎬 LOADER FADE OUT */
+window.onload = function() {
+    setTimeout(function() {
+        let intro = document.getElementById("intro");
+        intro.style.opacity = "0";
+        setTimeout(() => intro.style.display = "none", 1000);
+    }, 2000);
+};
+</script>
+
+</body>
+</html>
